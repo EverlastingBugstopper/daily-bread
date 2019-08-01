@@ -14,7 +14,7 @@ use std::path::PathBuf;
 
 fn main() -> Result<(), Error> {
     let matches = App::new("daily-bread")
-        .version("0.1.0")
+        .version("0.1.1")
         .about("Emails your notes and commit messages to you at the end of the day")
         .author("Avery Harnish")
         .subcommand(

@@ -1,6 +1,6 @@
 [package]
 name = "daily-bread"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Avery Harnish <averyharnish@gmail.com>"]
 edition = "2018"
 description = "A CLI tool that emails your notes and commit messages to you at the end of the day"
