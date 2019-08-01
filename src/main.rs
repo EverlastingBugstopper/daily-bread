@@ -1,5 +1,10 @@
 extern crate clap;
 use clap::{App, Arg, SubCommand};
+
+extern crate chrono;
+use chrono::{Datelike, Local};
+
+use std::fs;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
 use std::io::Error;
@@ -22,9 +27,16 @@ fn main() -> Result<(), Error> {
         .subcommand(SubCommand::with_name("config").help("Sets your configuration"))
         .get_matches();
     if let Some(matches) = matches.subcommand_matches("note") {
+        let now = Local::now();
+        let year_name = now.year();
+        let year = now.format("%y");
+        let month = format!("{:02}", now.month());
+        let month_name = now.format("%B");
+        let day = format!("{:02}", now.day());
+        let dir = format!("./notes/{}/{}", year_name, month_name);
+        let path = format!("{}/{}-{}-{}.txt", dir, month, day, year);
+        fs::create_dir_all(dir)?;
         let note = matches.value_of("input").unwrap();
-        let path = "./notes/date.txt";
-        // TODO make directory if doesn't exist
         let mut file = OpenOptions::new().create(true).append(true).open(path)?;
         write!(file, "{}\n", note)?;
     } else if let Some(_) = matches.subcommand_matches("config") {
