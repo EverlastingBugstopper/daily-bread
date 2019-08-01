@@ -3,6 +3,12 @@ name = "daily-bread"
 version = "0.1.0"
 authors = ["Avery Harnish <averyharnish@gmail.com>"]
 edition = "2018"
+description = "A CLI tool that emails your notes and commit messages to you at the end of the day"
+repository = "https://github.com/EverlastingBugstopper/daily-bread"
+readme = "./README.md"
+license = "MIT"
+license-file = "./LICENSE"
+
 
 [dependencies]
 clap = "2.33.0"
